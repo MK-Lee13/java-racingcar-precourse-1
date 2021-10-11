@@ -12,4 +12,11 @@ public class RacingCarValidation {
         }
         return true;
     }
+
+    public static boolean isNotNullOrEmptyString(String input) {
+        if (input == null || input.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
 }

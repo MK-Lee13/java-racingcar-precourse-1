@@ -10,6 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class RacingCarValidationTest {
 
+    @DisplayName(value = "자동자_이름_Null_빈_스트링_검증")
+    @Test
+    void 자동자_이름_Null_빈_스트링_검증() {
+        assertThat(RacingCarValidation.isNotNullOrEmptyString("minky")).isTrue();
+        assertThat(RacingCarValidation.isNotNullOrEmptyString(null)).isFalse();
+        assertThat(RacingCarValidation.isNotNullOrEmptyString("")).isFalse();
+    }
+
     @DisplayName(value = "자동자_이름_길이_5_이하_검증")
     @Test
     void 자동자_이름_길이_5_이하_검증() {
