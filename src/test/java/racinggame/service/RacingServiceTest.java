@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
+import racinggame.domain.ErrorStatus;
+
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -19,6 +22,21 @@ public class RacingServiceTest {
     @BeforeEach
     void beforeEach() {
         this.racingService = new RacingService();
+    }
+
+    @DisplayName(value = "자동차_이름_입력_중복_검증")
+    @Test
+    void 자동차_이름_입력_중복_검증() {
+        assertThat(racingService.validateDuplicateCarNames(Arrays.asList("minky", "teddy", "conn")).isCorrect()).isTrue();
+        assertThat(racingService.validateDuplicateCarNames(Arrays.asList("minky", "minky", "conn")).isDuplicate()).isTrue();
+    }
+
+    @DisplayName(value = "자동차_이름_입력_검증")
+    @Test
+    void 자동차_이름_입력_검증() {
+        assertThat(racingService.validateInputCarNames(Arrays.asList("minky", "teddy", "conn")).isCorrect()).isTrue();
+        assertThat(racingService.validateInputCarNames(Arrays.asList("minky", "", "conn")).isNullOrEmptyString()).isTrue();
+        assertThat(racingService.validateInputCarNames(Arrays.asList("minky123", "teddy", "conn")).isMoreThanFive()).isTrue();
     }
 
     @DisplayName(value = "전진_조건_랜덤_값_생성")
