@@ -13,6 +13,10 @@ public class RacingReports {
         this.cars = cars;
     }
 
+    public int getCarsSize() {
+        return cars.size();
+    }
+
     public String getCarName(int position) {
         return cars.get(position).getName();
     }
