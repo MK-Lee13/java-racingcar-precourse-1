@@ -19,6 +19,8 @@ public class RacingService {
     public static final int END_PICK_NUMBER = 9;
     private RacingCars racingCars;
 
+    public RacingService() { }
+
     public int getRandomValue() {
         return Randoms.pickNumberInRange(START_PICK_NUMBER, END_PICK_NUMBER);
     }
