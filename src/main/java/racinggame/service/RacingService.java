@@ -3,6 +3,7 @@ package racinggame.service;
 import nextstep.utils.Randoms;
 import racinggame.domain.ErrorStatus;
 import racinggame.domain.RacingCars;
+import racinggame.domain.RacingWinners;
 
 import java.util.List;
 
@@ -29,6 +30,10 @@ public class RacingService {
         for (int i = 0; i < racingCars.getCarsSize(); i++) {
             racingCars.setProgressWithPosition(i, getRandomValue());
         }
+    }
+
+    public RacingWinners getRacingWinners() {
+        return racingCars.reports();
     }
 
     public ErrorStatus validateInputCarNames(List<String> names) {
