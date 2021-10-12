@@ -17,7 +17,7 @@ public class RacingCarValidation {
     }
 
     public static boolean isNotNullOrEmptyString(String input) {
-        if (input == null || input.isEmpty()) {
+        if (input == null || input.trim().isEmpty()) {
             return false;
         }
         return true;
