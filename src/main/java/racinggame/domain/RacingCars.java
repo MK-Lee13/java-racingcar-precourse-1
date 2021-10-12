@@ -35,7 +35,7 @@ public class RacingCars {
         }
     }
 
-    public int getCarsSize() {
+    public int length() {
         return cars.size();
     }
 

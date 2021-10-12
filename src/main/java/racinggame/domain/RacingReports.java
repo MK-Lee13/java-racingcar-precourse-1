@@ -16,7 +16,7 @@ public class RacingReports {
         this.cars = cars;
     }
 
-    public int getCarsSize() {
+    public int length() {
         return cars.size();
 
     }

@@ -30,7 +30,7 @@ public class RacingService {
     }
 
     public void startRace() {
-        for (int i = 0; i < racingCars.getCarsSize(); i++) {
+        for (int i = 0; i < racingCars.length(); i++) {
             racingCars.setProgressWithPosition(i, getRandomValue());
         }
     }
@@ -41,6 +41,10 @@ public class RacingService {
 
     public RacingReports getRacingReports() {
         return racingCars.interimReports();
+    }
+
+    public int length() {
+        return racingCars.length();
     }
 
     public ErrorStatus validateInputCarNames(List<String> names) {
