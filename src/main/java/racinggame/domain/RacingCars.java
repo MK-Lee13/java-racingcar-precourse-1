@@ -23,7 +23,7 @@ public class RacingCars {
         return cars;
     }
 
-    public RacingStatus isWinner(int position) {
+    public RacingStatus report(int position) {
         if (cars.get(position).getProgress() == getWinnerScore()) {
             return RacingStatus.WINNER;
         }
@@ -50,5 +50,19 @@ public class RacingCars {
             return progress;
         }
         return winningScore;
+    }
+
+    public RacingWinners reports() {
+        List<String> winnerNames = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            addWinner(i, winnerNames);
+        }
+        return new RacingWinners(winnerNames);
+    }
+
+    private void addWinner(int targetCarIndex, List<String> winnerNames) {
+        if (report(targetCarIndex).isWinner()) {
+            winnerNames.add(cars.get(targetCarIndex).getName());
+        }
     }
 }

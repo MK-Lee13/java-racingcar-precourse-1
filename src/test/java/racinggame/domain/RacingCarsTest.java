@@ -22,11 +22,18 @@ public class RacingCarsTest {
         racingCars.setProgressWithPosition(2, 1);
     }
 
+    @DisplayName(value = "자동차_게임_우승자_복수_판별")
+    @Test
+    void 자동차_게임_우승자_복수_판별() {
+        RacingWinners compareAnswer = new RacingWinners(Arrays.asList("minky", "teddy"));
+        assertThat(racingCars.reports().equals(compareAnswer)).isTrue();
+    }
+
     @DisplayName(value = "자동자_게임_우승자_판별")
     @Test
     void 자동자_게임_우승자_판별() {
-        assertThat(racingCars.isWinner(0)).isEqualTo(RacingStatus.WINNER);
-        assertThat(racingCars.isWinner(1)).isEqualTo(RacingStatus.WINNER);
-        assertThat(racingCars.isWinner(2)).isEqualTo(RacingStatus.LOSER);
+        assertThat(racingCars.report(0)).isEqualTo(RacingStatus.WINNER);
+        assertThat(racingCars.report(1)).isEqualTo(RacingStatus.WINNER);
+        assertThat(racingCars.report(2)).isEqualTo(RacingStatus.LOSER);
     }
 }
