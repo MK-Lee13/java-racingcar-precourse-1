@@ -2,6 +2,7 @@ package racinggame.service;
 
 import nextstep.utils.Randoms;
 import racinggame.domain.ErrorStatus;
+import racinggame.domain.RacingCars;
 
 import java.util.List;
 
@@ -14,9 +15,14 @@ import static racinggame.utils.RacingGameValidation.isPositiveNumber;
 public class RacingService {
     public static final int START_PICK_NUMBER = 0;
     public static final int END_PICK_NUMBER = 9;
+    private RacingCars racingCars;
 
     public int getRandomValue() {
         return Randoms.pickNumberInRange(START_PICK_NUMBER, END_PICK_NUMBER);
+    }
+
+    public void initRacingCars(List<String> names) {
+        this.racingCars = new RacingCars(names);
     }
 
     public ErrorStatus validateInputCarNames(List<String> names) {
