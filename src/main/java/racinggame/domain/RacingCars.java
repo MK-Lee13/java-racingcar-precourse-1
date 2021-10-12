@@ -42,15 +42,8 @@ public class RacingCars {
     private int getWinnerScore() {
         int winningScore = 0;
         for (Car car : cars) {
-            int oneCarProgress = car.getProgress();
-            winningScore = getCurrentWinnerScore(oneCarProgress, winningScore);
-        }
-        return winningScore;
-    }
-
-    private int getCurrentWinnerScore(int progress, int winningScore) {
-        if (progress > winningScore) {
-            return progress;
+            int targetCarProgress = car.getProgress();
+            winningScore = Math.max(targetCarProgress, winningScore);
         }
         return winningScore;
     }
