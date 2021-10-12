@@ -25,6 +25,12 @@ public class RacingService {
         this.racingCars = new RacingCars(names);
     }
 
+    public void startRace() {
+        for (int i = 0; i < racingCars.getCarsSize(); i++) {
+            racingCars.setProgressWithPosition(i, getRandomValue());
+        }
+    }
+
     public ErrorStatus validateInputCarNames(List<String> names) {
         ErrorStatus errorStatus = ErrorStatus.CORRECT;
         for (int i = 0; i < names.size() && errorStatus.isCorrect(); i++) {

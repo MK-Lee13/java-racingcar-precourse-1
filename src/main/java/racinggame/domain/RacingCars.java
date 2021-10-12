@@ -35,6 +35,10 @@ public class RacingCars {
         }
     }
 
+    public int getCarsSize() {
+        return cars.size();
+    }
+
     private int getWinnerScore() {
         int winningScore = 0;
         for (Car car : cars) {
