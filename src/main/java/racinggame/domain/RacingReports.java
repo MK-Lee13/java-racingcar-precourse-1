@@ -7,6 +7,7 @@ import java.util.Objects;
  * Created by Minky on 2021-10-12
  */
 public class RacingReports {
+    public static final String PROGRESS_VIEW = "-";
     private final List<Car> cars;
 
     public RacingReports(List<Car> cars) {
@@ -15,25 +16,28 @@ public class RacingReports {
 
     public int getCarsSize() {
         return cars.size();
+
     }
 
     public String getCarName(int position) {
-        return cars.get(position).getName();
+        return cars.get(position)
+                .getName();
     }
 
-    public int getCarProgress(int position) {
-        return cars.get(position).getProgress();
+    private int getCarProgress(int position) {
+        return cars.get(position)
+                .getProgress();
     }
 
     public String getCarProgressString(int position) {
-        int targetProgress = cars.get(position).getProgress();
+        int targetProgress = getCarProgress(position);
         return getProgressView(targetProgress);
     }
 
     private String getProgressView(int progress) {
         String progressView = "";
         for (int i = 0; i < progress; i++) {
-            progressView += "-";
+            progressView += PROGRESS_VIEW;
         }
         return progressView;
     }
