@@ -1,7 +1,6 @@
 package racinggame.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -64,5 +63,9 @@ public class RacingCars {
         if (report(targetCarIndex).isWinner()) {
             winnerNames.add(cars.get(targetCarIndex).getName());
         }
+    }
+
+    public RacingReports interimReports() {
+        return new RacingReports(cars);
     }
 }

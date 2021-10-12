@@ -1,5 +1,7 @@
 package racinggame.domain;
 
+import java.util.Objects;
+
 /**
  * Created by Minky on 2021-10-12
  */
@@ -27,5 +29,23 @@ public class Car {
 
     public int getProgress() {
         return this.progress;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Car car = (Car) o;
+        return progress == car.progress &&
+                Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, progress);
     }
 }
