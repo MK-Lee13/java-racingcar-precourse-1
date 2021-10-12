@@ -1,5 +1,8 @@
 package racinggame.utils;
 
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * Created by Minky on 2021-10-12
  */
@@ -18,5 +21,13 @@ public class RacingCarValidation {
             return false;
         }
         return true;
+    }
+
+    public static boolean isNotDuplicate(List<String> names) {
+        HashSet<String> notDuplicateNames = new HashSet<>(names);
+        if (notDuplicateNames.size() == names.size()) {
+            return true;
+        }
+        return false;
     }
 }
