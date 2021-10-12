@@ -6,7 +6,7 @@ import java.util.Objects;
  * Created by Minky on 2021-10-12
  */
 public class Car {
-    private String name;
+    private final String name;
     private int progress = 0;
 
     public Car(String name) {

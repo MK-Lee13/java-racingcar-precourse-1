@@ -8,7 +8,7 @@ import java.util.Objects;
  * Created by Minky on 2021-10-12
  */
 public class RacingWinners {
-    private List<String> names;
+    private final List<String> names;
 
     public RacingWinners(List<String> winnerNames) {
         this.names = winnerNames;
