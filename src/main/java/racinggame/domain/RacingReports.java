@@ -21,6 +21,19 @@ public class RacingReports {
         return cars.get(position).getProgress();
     }
 
+    public String getCarProgressString(int position) {
+        int targetProgress = cars.get(position).getProgress();
+        return getProgressView(targetProgress);
+    }
+
+    private String getProgressView(int progress) {
+        String progressView = "";
+        for (int i = 0; i < progress; i++) {
+            progressView += "-";
+        }
+        return progressView;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
