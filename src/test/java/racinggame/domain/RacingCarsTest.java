@@ -20,7 +20,6 @@ public class RacingCarsTest {
         racingCars.setProgressWithPosition(0, 4);
         racingCars.setProgressWithPosition(1, 5);
         racingCars.setProgressWithPosition(2, 1);
-        racingCars.setWinnerScore();
     }
 
     @DisplayName(value = "자동자_게임_우승자_판별")

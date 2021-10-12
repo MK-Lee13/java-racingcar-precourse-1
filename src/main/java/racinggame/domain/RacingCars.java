@@ -8,8 +8,8 @@ import java.util.List;
  * Created by Minky on 2021-10-12
  */
 public class RacingCars {
+    public static final int LOWEST_CAR_POSITION = 0;
     private List<Car> cars;
-    private int winnerScore = 0;
 
     public RacingCars(List<String> carNames) {
         this.cars = mapCar(carNames);
@@ -24,25 +24,25 @@ public class RacingCars {
     }
 
     public RacingStatus isWinner(int position) {
-        if (cars.get(position).getProgress() == winnerScore) {
+        if (cars.get(position).getProgress() == getWinnerScore()) {
             return RacingStatus.WINNER;
         }
         return RacingStatus.LOSER;
     }
 
     public void setProgressWithPosition(int position, int randomValue) {
-        if (position < cars.size() && position >= 0) {
+        if (position < cars.size() && position >= LOWEST_CAR_POSITION) {
             cars.get(position).setProgress(randomValue);
         }
     }
 
-    public void setWinnerScore() {
+    private int getWinnerScore() {
         int winningScore = 0;
         for (Car car : cars) {
             int oneCarProgress = car.getProgress();
             winningScore = getCurrentWinnerScore(oneCarProgress, winningScore);
         }
-        winnerScore = winningScore;
+        return winningScore;
     }
 
     private int getCurrentWinnerScore(int progress, int winningScore) {
