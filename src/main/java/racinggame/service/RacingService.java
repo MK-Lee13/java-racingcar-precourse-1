@@ -6,6 +6,7 @@ import racinggame.domain.ErrorStatus;
 import java.util.List;
 
 import static racinggame.utils.RacingCarValidation.*;
+import static racinggame.utils.RacingGameValidation.isPositiveNumber;
 
 /**
  * Created by Minky on 2021-10-12
@@ -41,5 +42,12 @@ public class RacingService {
             return ErrorStatus.IS_MORE_THAN_FIVE;
         }
         return ErrorStatus.CORRECT;
+    }
+
+    public ErrorStatus validateInputGameNumber(String gameNumber) {
+        if (isPositiveNumber(gameNumber)) {
+            return ErrorStatus.CORRECT;
+        }
+        return ErrorStatus.IS_NOT_POSITIVE_NUMBER;
     }
 }

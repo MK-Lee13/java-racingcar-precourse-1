@@ -24,6 +24,15 @@ public class RacingServiceTest {
         this.racingService = new RacingService();
     }
 
+    @DisplayName(value = "자동차_게임_진행_횟수_입력_검증")
+    @Test
+    void 자동차_게임_진행_횟수_입력_검증() {
+        assertThat(racingService.validateInputGameNumber("1").isCorrect()).isTrue();
+        assertThat(racingService.validateInputGameNumber("100").isCorrect()).isTrue();
+        assertThat(racingService.validateInputGameNumber("0").isNotPositiveNumber()).isTrue();
+        assertThat(racingService.validateInputGameNumber("a").isNotPositiveNumber()).isTrue();
+    }
+
     @DisplayName(value = "자동차_이름_입력_중복_검증")
     @Test
     void 자동차_이름_입력_중복_검증() {
