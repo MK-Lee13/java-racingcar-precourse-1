@@ -41,9 +41,9 @@ public class RacingCarsTest {
     @DisplayName(value = "자동자_게임_우승자_판별")
     @Test
     void 자동자_게임_우승자_판별() {
-        assertThat(racingCars.report(0)).isEqualTo(RacingStatus.WINNER);
-        assertThat(racingCars.report(1)).isEqualTo(RacingStatus.WINNER);
-        assertThat(racingCars.report(2)).isEqualTo(RacingStatus.LOSER);
+        assertThat(racingCars.report(0).isWinner()).isTrue();
+        assertThat(racingCars.report(1).isWinner()).isTrue();
+        assertThat(racingCars.report(2).isWinner()).isFalse();
     }
 
     private List<Car> getCars() {
